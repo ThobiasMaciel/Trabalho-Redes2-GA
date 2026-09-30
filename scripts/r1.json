@@ -1,0 +1,9 @@
+{
+  "router_id": "r1",
+  "direct_networks": ["10.1.1.0/24"],
+  "neighbors": {
+    "r2": {"my_ip": "10.2.12.1", "neighbor_ip": "10.2.12.2"},
+    "r5": {"my_ip": "10.2.51.2", "neighbor_ip": "10.2.51.1"},
+    "r3": {"my_ip": "10.2.13.1", "neighbor_ip": "10.2.13.2"}
+  }
+}

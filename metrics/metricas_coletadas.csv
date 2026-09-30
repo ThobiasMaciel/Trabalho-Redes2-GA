@@ -1,0 +1,19 @@
+protocolo,metrica,valor,unidade,observacao
+RIP,tamanho_tabela,7,entradas,rotas aprendidas via RIP no roteador r1
+RIP,pacotes_controle,4,pacotes,capturados em 60s no link r1-r2
+RIP,bytes_controle,688,bytes,soma dos 4 pacotes (2x152 + 2x192 bytes)
+RIP,taxa_transmissao,11.5,bytes/s,688 bytes / 60 segundos
+RIP,tempo_convergencia,4,segundos,teste com iptables bloqueando porta 520 no link ativo; kernel nao interferiu
+RIP,tempo_convergencia_kernel,0,segundos,teste alternativo derrubando interface fisica; kernel trocou rota instantaneamente (nao representa o protocolo em si)
+
+OSPF,tamanho_tabela,7,entradas,rotas aprendidas via OSPF no roteador r1
+OSPF,pacotes_controle,12,pacotes,capturados em 60s no link r1-r2 (Hello a cada 10s dos dois lados)
+OSPF,bytes_controle,816,bytes,soma dos 12 pacotes Hello (68 bytes cada)
+OSPF,taxa_transmissao,13.6,bytes/s,816 bytes / 60 segundos
+OSPF,tempo_convergencia,1,segundos,teste com iptables bloqueando protocolo OSPF nos dois links ativos; convergencia imperceptivel no ping
+
+ALGORITMO_PROPRIO,tamanho_tabela,4,entradas,rotas para redes de acesso remotas (nao inclui sub-redes /30 entre roteadores)
+ALGORITMO_PROPRIO,pacotes_controle,142,pacotes,capturados em 60s no link r1-r2 (Hello a cada 1s + updates a cada 5s)
+ALGORITMO_PROPRIO,bytes_controle,9300,bytes,soma aproximada dos pacotes
+ALGORITMO_PROPRIO,taxa_transmissao,155,bytes/s,aproximadamente 9300 bytes / 60 segundos
+ALGORITMO_PROPRIO,tempo_convergencia,3.5,segundos,teste real derrubando link ativo; HELLO_TIMEOUT=3s determina o tempo de deteccao
