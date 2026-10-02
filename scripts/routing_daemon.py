@@ -21,9 +21,9 @@ from pyroute2 import IPRoute
 from routing_logic import RoutingTable
 
 UDP_PORT = 5000
-HELLO_INTERVAL = 1.0      # segundos entre Hellos
-UPDATE_INTERVAL = 5.0     # segundos entre vetores de distancia completos
-HELLO_TIMEOUT = 3.0       # se nao ouvir Hello do vizinho por esse tempo, considera morto
+HELLO_INTERVAL = 1.0      
+UPDATE_INTERVAL = 5.0     
+HELLO_TIMEOUT = 3.0       
 
 
 class RoutingDaemon:
